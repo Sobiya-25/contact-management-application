@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="/add" class="btn btn-primary mb-3">Add Contact</a>
+
+<table class="table table-bordered">
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Address</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Actions</th>
+</tr>
+
+{% for c in contacts %}
+<tr>
+<td>{{ c[1] }}</td>
+<td>{{ c[2] }}</td>
+<td>{{ c[3] }}</td>
+<td>{{ c[4] }}</td>
+<td>{{ c[5] }}</td>
+<td>
+<a href="/edit/{{ c[0] }}">Edit</a>
+<a href="/delete/{{ c[0] }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

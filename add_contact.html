@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+<h3>Add Contact</h3>
+
+{% if error %}
+<div>{{ error }}</div>
+{% endif %}
+
+<form method="POST">
+
+<div class="mb-3">
+    <input name="first_name" placeholder="First Name" class="form-control">
+</div>
+
+<div class="mb-3">
+    <input name="last_name" placeholder="Last Name" class="form-control">
+</div>
+
+<div class="mb-3">
+    <input name="address" placeholder="Address" class="form-control">
+</div>
+
+<div class="mb-3">
+    <input name="email" placeholder="Email" class="form-control">
+</div>
+
+<div class="mb-3">
+    <input name="phone" placeholder="Phone" class="form-control">
+</div>
+#active
+<button class="btn btn-success">Save</button>
+
+</form>
+
+{% endblock %}
